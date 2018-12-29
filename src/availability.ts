@@ -164,12 +164,12 @@ export class Availability {
 
         return {
           from: formatDate(from),
-          until: formatDate(until),
           type: this.getType(
             columns[columnType],
-            columns[columnInnbetBeloep],
             columns[columnInnbetDato],
+            columns[columnInnbetBeloep],
           ),
+          until: formatDate(until),
         }
       })
       .filter(notNull)
