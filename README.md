@@ -1,5 +1,7 @@
 # smaabruket-availability-api
 
+[![CircleCI](https://circleci.com/gh/blindern/smaabruket-availability-api.svg?style=svg)](https://circleci.com/gh/blindern/smaabruket-availability-api)
+
 ## Developing
 
 ```bash
@@ -15,4 +17,4 @@ https://spreadsheets.google.com/feeds/cells/xxxxx/xxxx/public/basic?alt=json&max
 
 ## Deploying
 
-TODO
+Automated through CircleCI
