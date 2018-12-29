@@ -1,5 +1,44 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "packageRules": [
+    {
+      "groupName": "tslint",
+      "packagePatterns": [
+        "tslint",
+        "tslint-config-prettier"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "prettier",
+      "packagePatterns": [
+        "prettier"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "typescript",
+      "packagePatterns": [
+        "ts-node",
+        "typescript"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "express",
+      "packagePatterns": [
+        "express"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ],
+  "pin": {
+    "automerge": true
+  }
 }
