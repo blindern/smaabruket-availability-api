@@ -43,5 +43,8 @@ workflows:
           requires:
             - test
       - deploy-prod:
+          filters:
+            branches:
+              only: master
           requires:
             - build
