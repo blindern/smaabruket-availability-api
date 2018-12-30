@@ -42,3 +42,6 @@ workflows:
           context: Docker Hub
           requires:
             - test
+      - deploy-prod:
+          requires:
+            - build
