@@ -9,7 +9,7 @@ describe('class Availability', () => {
       const availability = new Availability(testUrl)
       const res = await availability.getData()
 
-      expect(res).toBe([
+      expect(res).toEqual([
         { from: '2018-05-06', type: 'UTLEID', until: '2018-05-08' },
         { from: '2018-11-09', type: 'HYTTESTYRET', until: '2018-11-11' },
         { from: '2018-12-08', type: 'RESERVERT', until: '2018-12-09' },
