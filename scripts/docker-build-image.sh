@@ -18,3 +18,5 @@ echo $tag >.dockertag
 docker pull $repo:latest || :
 
 docker build --pull --cache-from $repo:latest -t $repo:$tag .
+
+docker history $repo:$tag
