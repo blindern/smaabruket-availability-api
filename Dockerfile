@@ -1,6 +1,6 @@
 FROM node:11-alpine
 
-COPY package.json /app/
+COPY package*.json /app/
 
 RUN set -eux; \
     cd /app; \
