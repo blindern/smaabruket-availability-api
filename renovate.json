@@ -21,10 +21,20 @@
       "automergeType": "branch"
     },
     {
+      "groupName": "jest",
+      "packagePatterns": [
+        "jest",
+        "ts-jest"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
       "groupName": "typescript",
       "packagePatterns": [
         "ts-node",
-        "typescript"
+        "typescript",
+        "^@types/"
       ],
       "automerge": true,
       "automergeType": "branch"
@@ -33,6 +43,15 @@
       "groupName": "express",
       "packagePatterns": [
         "express"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "groupName": "requests",
+      "packagePatterns": [
+        "request",
+        "request-promise-native"
       ],
       "automerge": true,
       "automergeType": "branch"
