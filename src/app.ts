@@ -1,3 +1,4 @@
+import cors from 'cors'
 import express from 'express'
 import {
   Availability,
@@ -17,6 +18,7 @@ const weeksShowBefore = 0
 const weeksShowAfter = 25
 
 const app = express()
+app.use(cors())
 
 app.get('/health', (req, res) => {
   res.send('I am alive!')
