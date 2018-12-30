@@ -4,7 +4,7 @@ COPY package.json /app/
 
 RUN set -eux; \
     cd /app; \
-    npm install
+    npm ci
 
 COPY . /app
 
