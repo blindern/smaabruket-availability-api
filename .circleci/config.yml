@@ -1,6 +1,15 @@
 ---
 version: 2
 jobs:
+  test:
+    working_directory: ~/repo
+    docker:
+      - image: node:11-alpine
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm lint
+      - run: npm test
   build:
     machine: true
     steps:
@@ -28,5 +37,8 @@ workflows:
   version: 2
   build:
     jobs:
+      - test
       - build:
           context: Docker Hub
+          requires:
+            - test

@@ -1,8 +1,8 @@
 import express from 'express'
 import {
   Availability,
-  filterDays,
   dateStartOfWeek,
+  filterDays,
   isValidIsoDate,
 } from './availability'
 
@@ -47,9 +47,9 @@ app.get('/availability', async (req, res) => {
   try {
     const bookings = filterDays(await availability.getData(), first, until)
     res.json({
+      bookings,
       first,
       until,
-      bookings,
     })
   } catch (err) {
     console.log('Failed for some reason', err)

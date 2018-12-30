@@ -186,7 +186,7 @@ export class Availability {
     }
   }
 
-  private getType(type?: string, innbetDato?: string, innbetBeloep?: string) {
+  public getType(type?: string, innbetDato?: string, innbetBeloep?: string) {
     if (type == null || type === '') return BookingType.HYTTESTYRET
 
     const fixedTypes: { [key: string]: BookingType } = {
