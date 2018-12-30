@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - run: npm ci
-      - run: npm lint
+      - run: npm run lint
       - run: npm test
   build:
     machine: true
