@@ -39,6 +39,6 @@
     "cors": "2.8.5",
     "express": "4.16.4",
     "request": "2.88.0",
-    "request-promise-native": "1.0.6"
+    "request-promise-native": "1.0.7"
   }
 }
