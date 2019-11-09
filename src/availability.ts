@@ -145,14 +145,11 @@ export class Availability {
         }
       })
       .filter(notNull)
-      .reduce(
-        (acc, cell) => {
-          acc[cell.row] = acc[cell.row] || {}
-          acc[cell.row][cell.column] = cell.content
-          return acc
-        },
-        [] as Array<{ [column: string]: string }>,
-      )
+      .reduce((acc, cell) => {
+        acc[cell.row] = acc[cell.row] || {}
+        acc[cell.row][cell.column] = cell.content
+        return acc
+      }, [] as Array<{ [column: string]: string }>)
       .filter(
         columns => columnLeiestart in columns && columnLeieslutt in columns,
       )
