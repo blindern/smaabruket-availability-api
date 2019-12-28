@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 
+>&2 echo "Automated deploy currently disabled"
+>&2 echo "Would have deployed $(cat .dockertag) if enabled"
+exit
+
 tag=$(cat .dockertag)
 
 echo "Running remote SSH-script"
