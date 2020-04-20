@@ -90,7 +90,7 @@ export function filterDays(
   beforeDate: string,
 ) {
   return data.filter(
-    booking =>
+    (booking) =>
       // yyyy-mm-dd can be compared directly
       booking.from >= firstDate && booking.until < beforeDate,
   )
@@ -134,7 +134,7 @@ export class Availability {
 
   private parseSpreadsheet(data: ISpreadsheetFeed) {
     return data.feed.entry
-      .map(cell => {
+      .map((cell) => {
         const cellNotation = this.parseCellNotation(cell.title.$t)
         if (cellNotation === null) return null
         const { row, column } = cellNotation
@@ -151,9 +151,9 @@ export class Availability {
         return acc
       }, [] as Array<{ [column: string]: string }>)
       .filter(
-        columns => columnLeiestart in columns && columnLeieslutt in columns,
+        (columns) => columnLeiestart in columns && columnLeieslutt in columns,
       )
-      .map<IBooking | null>(columns => {
+      .map<IBooking | null>((columns) => {
         const from = parseDate(columns[columnLeiestart])
         const until = parseDate(columns[columnLeieslutt])
 
@@ -170,7 +170,7 @@ export class Availability {
         }
       })
       .filter(notNull)
-      .filter(booking => booking.type !== BookingType.AVLYST)
+      .filter((booking) => booking.type !== BookingType.AVLYST)
       .sort((a, b) => a.from.localeCompare(b.from))
   }
 
