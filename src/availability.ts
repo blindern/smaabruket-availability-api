@@ -46,7 +46,7 @@ export function isValidIsoDate(value: string) {
 }
 
 function parseDate(value: string) {
-  const match = value.match(/^(\d\d).(\d\d).(\d\d\d\d)$/)
+  const match = /^(\d\d).(\d\d).(\d\d\d\d)$/.exec(value)
   if (!match) return null
 
   return new Date(`${match[3]}-${match[2]}-${match[1]}`)

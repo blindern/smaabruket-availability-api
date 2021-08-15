@@ -65,6 +65,6 @@ app.post('/availability/invalidate', (req, res) => {
   res.json({ invalidated: true })
 })
 
-const server = app.listen(8000, () => {
+app.listen(8000, () => {
   console.log('App running')
 })
