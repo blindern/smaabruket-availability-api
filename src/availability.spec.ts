@@ -23,6 +23,8 @@ describe('class Availability', () => {
         { from: '2018-11-09', type: 'HYTTESTYRET', until: '2018-11-11' },
         { from: '2018-12-08', type: 'RESERVERT', until: '2018-12-09' },
         { from: '2018-12-15', type: 'UTLEID', until: '2018-12-16' },
+        { from: '2018-12-18', type: 'RESERVERT-HS', until: '2018-12-19' },
+        { from: '2018-12-20', type: 'BEBOERHELG', until: '2018-12-22' },
       ])
     })
   })
@@ -38,6 +40,12 @@ describe('class Availability', () => {
       expect(av.getType('UTLEIE', '01.12.2018', '1000')).toBe('UTLEID')
       expect(av.getType('UTLEIE', '', '1000')).toBe('RESERVERT')
       expect(av.getType('UTLEIE', undefined, '1000')).toBe('RESERVERT')
+      expect(av.getType('RESERVERT SOM BEBOERHELG', undefined, undefined)).toBe(
+        'BEBOERHELG',
+      )
+      expect(av.getType('RESERVERT AV HYTTESTYRET', undefined, undefined)).toBe(
+        'RESERVERT-HS',
+      )
     })
   })
 })

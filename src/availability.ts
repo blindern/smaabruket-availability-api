@@ -1,5 +1,3 @@
-// import request from 'request-promise-native'
-
 import { sheets_v4 } from '@googleapis/sheets'
 import { GoogleAuth } from 'google-auth-library'
 
@@ -174,6 +172,8 @@ export class Availability {
       BEBOERHELG: BookingType.BEBOERHELG,
       HYTTESTYRET: BookingType.HYTTESTYRET,
       RESERVERT: BookingType['RESERVERT-HS'],
+      'RESERVERT SOM BEBOERHELG': BookingType.BEBOERHELG,
+      'RESERVERT AV HYTTESTYRET': BookingType['RESERVERT-HS'],
     }
     if (type in fixedTypes) return fixedTypes[type]
 
