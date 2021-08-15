@@ -1,27 +1,27 @@
-import { sheets_v4 } from '@googleapis/sheets'
-import { GoogleAuth } from 'google-auth-library'
+import { sheets_v4 } from "@googleapis/sheets"
+import { GoogleAuth } from "google-auth-library"
 
 const cacheExpireSeconds = 900
 
 function columnIndexByChar(char: string): number {
-  return char.charCodeAt(0) - 'A'.charCodeAt(0)
+  return char.charCodeAt(0) - "A".charCodeAt(0)
 }
 
 // This assumes the named range actually starts as A,
 // to be comparable with the spreadsheet view.
-const columnLeiestart = columnIndexByChar('A')
-const columnLeieslutt = columnIndexByChar('B')
-const columnType = columnIndexByChar('E')
-const columnInnbetDato = columnIndexByChar('H')
-const columnInnbetBeloep = columnIndexByChar('I')
+const columnLeiestart = columnIndexByChar("A")
+const columnLeieslutt = columnIndexByChar("B")
+const columnType = columnIndexByChar("E")
+const columnInnbetDato = columnIndexByChar("H")
+const columnInnbetBeloep = columnIndexByChar("I")
 
 enum BookingType {
-  AVLYST = 'AVLYST',
-  BEBOERHELG = 'BEBOERHELG',
-  HYTTESTYRET = 'HYTTESTYRET',
-  RESERVERT = 'RESERVERT',
-  'RESERVERT-HS' = 'RESERVERT-HS',
-  UTLEID = 'UTLEID',
+  AVLYST = "AVLYST",
+  BEBOERHELG = "BEBOERHELG",
+  HYTTESTYRET = "HYTTESTYRET",
+  RESERVERT = "RESERVERT",
+  "RESERVERT-HS" = "RESERVERT-HS",
+  UTLEID = "UTLEID",
 }
 
 interface IBooking {
@@ -114,8 +114,8 @@ export class Availability {
     }
 
     const auth = new GoogleAuth({
-      keyFilename: 'credentials.json',
-      scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+      keyFilename: "credentials.json",
+      scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
     })
 
     const client = new sheets_v4.Sheets({
@@ -124,7 +124,7 @@ export class Availability {
 
     const res = await client.spreadsheets.values.get({
       // Named range in the spreadsheet.
-      range: 'Bookinger',
+      range: "Bookinger",
       spreadsheetId: this.spreadsheetId,
     })
 
@@ -165,21 +165,21 @@ export class Availability {
   }
 
   public getType(type?: string, innbetDato?: string, innbetBeloep?: string) {
-    if (type == null || type === '') return BookingType.HYTTESTYRET
+    if (type == null || type === "") return BookingType.HYTTESTYRET
 
     const fixedTypes: { [key: string]: BookingType } = {
       AVLYST: BookingType.AVLYST,
       BEBOERHELG: BookingType.BEBOERHELG,
       HYTTESTYRET: BookingType.HYTTESTYRET,
-      RESERVERT: BookingType['RESERVERT-HS'],
-      'RESERVERT SOM BEBOERHELG': BookingType.BEBOERHELG,
-      'RESERVERT AV HYTTESTYRET': BookingType['RESERVERT-HS'],
+      RESERVERT: BookingType["RESERVERT-HS"],
+      "RESERVERT SOM BEBOERHELG": BookingType.BEBOERHELG,
+      "RESERVERT AV HYTTESTYRET": BookingType["RESERVERT-HS"],
     }
     if (type in fixedTypes) return fixedTypes[type]
 
     return innbetBeloep == null ||
-      innbetBeloep === '' ||
-      (innbetDato != null && innbetDato !== '')
+      innbetBeloep === "" ||
+      (innbetDato != null && innbetDato !== "")
       ? BookingType.UTLEID
       : BookingType.RESERVERT
   }

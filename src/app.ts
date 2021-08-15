@@ -1,15 +1,15 @@
-import cors from 'cors'
-import express from 'express'
+import cors from "cors"
+import express from "express"
 import {
   Availability,
   dateStartOfWeek,
   filterDays,
   isValidIsoDate,
-} from './availability'
+} from "./availability"
 
 const spreadsheetId = process.env.SPREADSHEET_ID
 if (spreadsheetId == null) {
-  throw Error('Missing environment variable SPREADSHEET_ID')
+  throw Error("Missing environment variable SPREADSHEET_ID")
 }
 
 const availability = new Availability(spreadsheetId)
@@ -20,22 +20,22 @@ const weeksShowAfter = 25
 const app = express()
 app.use(cors())
 
-app.get('/health', (req, res) => {
-  res.send('I am alive!')
+app.get("/health", (req, res) => {
+  res.send("I am alive!")
 })
 
-app.get('/', (req, res) => {
-  res.send('See /availability')
+app.get("/", (req, res) => {
+  res.send("See /availability")
 })
 
 function parseDate(value: string) {
   if (!isValidIsoDate(value)) {
-    throw Error('Invalid date!')
+    throw Error("Invalid date!")
   }
   return value
 }
 
-app.get('/availability', async (req, res) => {
+app.get("/availability", async (req, res) => {
   const first =
     req.query.first != null
       ? parseDate(req.query.first)
@@ -54,17 +54,17 @@ app.get('/availability', async (req, res) => {
       until,
     })
   } catch (err) {
-    console.log('Failed for some reason', err)
+    console.log("Failed for some reason", err)
     res.status(500)
-    res.send('Failed')
+    res.send("Failed")
   }
 })
 
-app.post('/availability/invalidate', (req, res) => {
+app.post("/availability/invalidate", (req, res) => {
   availability.invalidateCache()
   res.json({ invalidated: true })
 })
 
 app.listen(8000, () => {
-  console.log('App running')
+  console.log("App running")
 })
