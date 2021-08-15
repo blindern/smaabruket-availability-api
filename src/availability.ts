@@ -1,12 +1,21 @@
-import request from 'request-promise-native'
+// import request from 'request-promise-native'
+
+import { sheets_v4 } from '@googleapis/sheets'
+import { GoogleAuth } from 'google-auth-library'
 
 const cacheExpireSeconds = 900
 
-const columnLeiestart = 'A'
-const columnLeieslutt = 'B'
-const columnType = 'E'
-const columnInnbetDato = 'H'
-const columnInnbetBeloep = 'I'
+function columnIndexByChar(char: string): number {
+  return char.charCodeAt(0) - 'A'.charCodeAt(0)
+}
+
+// This assumes the named range actually starts as A,
+// to be comparable with the spreadsheet view.
+const columnLeiestart = columnIndexByChar('A')
+const columnLeieslutt = columnIndexByChar('B')
+const columnType = columnIndexByChar('E')
+const columnInnbetDato = columnIndexByChar('H')
+const columnInnbetBeloep = columnIndexByChar('I')
 
 enum BookingType {
   AVLYST = 'AVLYST',
@@ -28,21 +37,6 @@ interface IBooking {
 interface ICache {
   timestamp: number
   data: IBooking[]
-}
-
-interface ISpreadsheetFeed {
-  feed: {
-    entry: Array<{
-      title: {
-        /** Cell notation, e.g. A4 */
-        $t: string
-      }
-      content: {
-        /** Cell content */
-        $t: string
-      }
-    }>
-  }
 }
 
 export function isValidIsoDate(value: string) {
@@ -97,11 +91,11 @@ export function filterDays(
 }
 
 export class Availability {
-  private url: string
+  private spreadsheetId: string
   private cache: ICache | null = null
 
-  constructor(url: string) {
-    this.url = url
+  constructor(spreadsheetId: string) {
+    this.spreadsheetId = spreadsheetId
   }
 
   private isExpired() {
@@ -120,9 +114,23 @@ export class Availability {
     if (this.cache != null && !this.isExpired()) {
       return this.cache.data
     }
-    const data = JSON.parse(await request.get(this.url)) as ISpreadsheetFeed
 
-    const parsed = this.parseSpreadsheet(data)
+    const auth = new GoogleAuth({
+      keyFilename: 'credentials.json',
+      scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+    })
+
+    const client = new sheets_v4.Sheets({
+      auth,
+    })
+
+    const res = await client.spreadsheets.values.get({
+      // Named range in the spreadsheet.
+      range: 'Bookinger',
+      spreadsheetId: this.spreadsheetId,
+    })
+
+    const parsed = this.parseSpreadsheet(res.data)
 
     this.cache = {
       data: parsed,
@@ -132,25 +140,9 @@ export class Availability {
     return this.cache.data
   }
 
-  private parseSpreadsheet(data: ISpreadsheetFeed) {
-    return data.feed.entry
-      .map((cell) => {
-        const cellNotation = this.parseCellNotation(cell.title.$t)
-        if (cellNotation === null) return null
-        const { row, column } = cellNotation
-        return {
-          column,
-          content: cell.content.$t,
-          row,
-        }
-      })
-      .filter(notNull)
-      .reduce((acc, cell) => {
-        acc[cell.row] = acc[cell.row] || {}
-        acc[cell.row][cell.column] = cell.content
-        return acc
-      }, [] as Array<{ [column: string]: string }>)
-      .filter(
+  private parseSpreadsheet(data: sheets_v4.Schema$ValueRange) {
+    return data
+      .values!.filter(
         (columns) => columnLeiestart in columns && columnLeieslutt in columns,
       )
       .map<IBooking | null>((columns) => {
@@ -172,15 +164,6 @@ export class Availability {
       .filter(notNull)
       .filter((booking) => booking.type !== BookingType.AVLYST)
       .sort((a, b) => a.from.localeCompare(b.from))
-  }
-
-  private parseCellNotation(value: string) {
-    const res = value.match(/^([A-Z]+)(\d+)$/)
-    if (res == null) return null
-    return {
-      column: res[1],
-      row: parseInt(res[2], 10),
-    }
   }
 
   public getType(type?: string, innbetDato?: string, innbetBeloep?: string) {

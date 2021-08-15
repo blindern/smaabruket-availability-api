@@ -2,3 +2,4 @@
 /dist
 /.dockertag
 /.dockerrepo
+/credentials.json

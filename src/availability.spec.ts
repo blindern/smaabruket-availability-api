@@ -1,12 +1,21 @@
+import * as fs from 'fs'
 import { Availability } from './availability'
 
-const testUrl =
-  'https://spreadsheets.google.com/feeds/cells/1RDCajU73u3TRhUv1M5DQchO_V7YgwTqdf5MZsMuIRfs/od6/public/basic?alt=json&max-col=10'
+const testSpreadsheetId = '1RDCajU73u3TRhUv1M5DQchO_V7YgwTqdf5MZsMuIRfs'
+
+const haveCredentials = fs.existsSync('credentials.json')
+if (!haveCredentials) {
+  console.log(
+    'WARN: Skipping integration test in lack of credentials.json file',
+  )
+}
+
+const itIfCredentials = haveCredentials ? it : it.skip
 
 describe('class Availability', () => {
   describe('fetching data', () => {
-    it('should properly fetch data for test sheet', async () => {
-      const availability = new Availability(testUrl)
+    itIfCredentials('should properly fetch data for test sheet', async () => {
+      const availability = new Availability(testSpreadsheetId)
       const res = await availability.getData()
 
       expect(res).toEqual([
