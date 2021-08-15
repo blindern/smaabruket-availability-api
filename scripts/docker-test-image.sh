@@ -18,7 +18,7 @@ container_id=$(
   docker run \
     --rm \
     -d \
-    -e SPREADSHEET_URL=dummy \
+    -e SPREADSHEET_ID=dummy \
     --network-alias=service \
     --network $network_id \
     "$image_id"

@@ -7,12 +7,12 @@ import {
   isValidIsoDate,
 } from './availability'
 
-const spreadsheetUrl = process.env.SPREADSHEET_URL
-if (spreadsheetUrl == null) {
-  throw Error('Missing environment variable SPREADSHEET_URL')
+const spreadsheetId = process.env.SPREADSHEET_ID
+if (spreadsheetId == null) {
+  throw Error('Missing environment variable SPREADSHEET_ID')
 }
 
-const availability = new Availability(spreadsheetUrl)
+const availability = new Availability(spreadsheetId)
 
 const weeksShowBefore = 0
 const weeksShowAfter = 25
