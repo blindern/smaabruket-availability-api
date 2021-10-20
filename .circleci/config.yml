@@ -4,7 +4,7 @@ jobs:
   test:
     working_directory: ~/repo
     docker:
-      - image: node:12-alpine
+      - image: node:17-alpine
     steps:
       - checkout
       - run: npm ci
