@@ -3,3 +3,4 @@
 /.dockertag
 /.dockerrepo
 /credentials.json
+/.vscode/
