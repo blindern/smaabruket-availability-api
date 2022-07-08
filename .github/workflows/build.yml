@@ -19,6 +19,12 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Setup credentials for integration test
+        run: |
+          echo "$SERVICE_ACCOUNT_CREDENTIALS_JSON" >credentials.json
+        env:
+          SERVICE_ACCOUNT_CREDENTIALS_JSON: ${{ secrets.SERVICE_ACCOUNT_CREDENTIALS_JSON }}
+
       - run: npm ci
       - run: npm run lint
       - run: npm test
