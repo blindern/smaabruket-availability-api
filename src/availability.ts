@@ -144,17 +144,17 @@ export class Availability {
         (columns) => columnLeiestart in columns && columnLeieslutt in columns,
       )
       .map<IBooking | null>((columns) => {
-        const from = parseDate(columns[columnLeiestart])
-        const until = parseDate(columns[columnLeieslutt])
+        const from = parseDate(columns[columnLeiestart] as string)
+        const until = parseDate(columns[columnLeieslutt] as string)
 
         if (from == null || until == null) return null
 
         return {
           from: formatDate(from),
           type: this.getType(
-            columns[columnType],
-            columns[columnInnbetDato],
-            columns[columnInnbetBeloep],
+            columns[columnType] as string | undefined,
+            columns[columnInnbetDato] as string | undefined,
+            columns[columnInnbetBeloep] as string | undefined,
           ),
           until: formatDate(until),
         }

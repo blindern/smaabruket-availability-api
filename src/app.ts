@@ -1,3 +1,4 @@
+import asyncHandler from "express-async-handler"
 import cors from "cors"
 import express from "express"
 import {
@@ -35,30 +36,33 @@ function parseDate(value: string) {
   return value
 }
 
-app.get("/availability", async (req, res) => {
-  const first =
-    req.query.first != null
-      ? parseDate(req.query.first)
-      : dateStartOfWeek(-weeksShowBefore)
+app.get(
+  "/availability",
+  asyncHandler(async (req, res) => {
+    const first =
+      typeof req.query.first === "string"
+        ? parseDate(req.query.first as string)
+        : dateStartOfWeek(-weeksShowBefore)
 
-  const until =
-    req.query.until != null
-      ? parseDate(req.query.until)
-      : dateStartOfWeek(weeksShowAfter)
+    const until =
+      typeof req.query.until === "string"
+        ? parseDate(req.query.until as string)
+        : dateStartOfWeek(weeksShowAfter)
 
-  try {
-    const bookings = filterDays(await availability.getData(), first, until)
-    res.json({
-      bookings,
-      first,
-      until,
-    })
-  } catch (err) {
-    console.log("Failed for some reason", err)
-    res.status(500)
-    res.send("Failed")
-  }
-})
+    try {
+      const bookings = filterDays(await availability.getData(), first, until)
+      res.json({
+        bookings,
+        first,
+        until,
+      })
+    } catch (err) {
+      console.log("Failed for some reason", err)
+      res.status(500)
+      res.send("Failed")
+    }
+  }),
+)
 
 app.post("/availability/invalidate", (req, res) => {
   availability.invalidateCache()
