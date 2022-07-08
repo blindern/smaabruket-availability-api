@@ -41,12 +41,12 @@ app.get(
   asyncHandler(async (req, res) => {
     const first =
       typeof req.query.first === "string"
-        ? parseDate(req.query.first as string)
+        ? parseDate(req.query.first)
         : dateStartOfWeek(-weeksShowBefore)
 
     const until =
       typeof req.query.until === "string"
-        ? parseDate(req.query.until as string)
+        ? parseDate(req.query.until)
         : dateStartOfWeek(weeksShowAfter)
 
     try {
