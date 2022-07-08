@@ -1,7 +1,5 @@
 # smaabruket-availability-api
 
-[![CircleCI](https://circleci.com/gh/blindern/smaabruket-availability-api.svg?style=svg)](https://circleci.com/gh/blindern/smaabruket-availability-api)
-
 https://foreningenbs.no/smaabruket-availability-api/availability
 
 https://foreningenbs.no/smaabruket-availability-api/availability?first=2018-01-01
