@@ -6,10 +6,10 @@ https://foreningenbs.no/smaabruket-availability-api/availability
 
 https://foreningenbs.no/smaabruket-availability-api/availability?first=2018-01-01
 
-## Developing
+## Development
 
 ```bash
-npm install
+npm ci
 export SPREADSHEET_ID='XXX'
 npm run serve
 ```
@@ -41,7 +41,3 @@ As of this writing we use the Service Account
 We retrieve data for the named range "Bookinger", which should cover
 the range from the header row (just before data) and all the data,
 and the columns as referenced in `availability.ts`.
-
-## Deploying
-
-Automated through CircleCI

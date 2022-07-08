@@ -1,9 +1,7 @@
 #!/bin/sh
 set -eu
 
-repo=$(cat .dockerrepo)
-tag=$(cat .dockertag)
-image_id="$repo:$tag"
+image_id=${1?:Missing image id argument}
 
 echo "Spinning up container to verify it works"
 
