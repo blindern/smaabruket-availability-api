@@ -84,7 +84,8 @@ export function filterDays(
   return data.filter(
     (booking) =>
       // yyyy-mm-dd can be compared directly
-      booking.from >= firstDate && booking.until < beforeDate,
+      // compare with overlap
+      booking.until >= firstDate && booking.from < beforeDate,
   )
 }
 
