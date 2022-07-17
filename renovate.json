@@ -1,67 +1,13 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "lockFileMaintenance": {
-    "enabled": true,
-    "automergeType": "branch",
-    "automerge": true
+    "enabled": true
   },
-  "packageRules": [
-    {
-      "groupName": "tslint",
-      "packagePatterns": [
-        "tslint",
-        "tslint-config-prettier"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "groupName": "prettier",
-      "packagePatterns": [
-        "prettier"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "groupName": "jest",
-      "packagePatterns": [
-        "jest",
-        "ts-jest"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "groupName": "typescript",
-      "packagePatterns": [
-        "ts-node",
-        "typescript",
-        "^@types/"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "groupName": "express",
-      "packagePatterns": [
-        "express"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "groupName": "requests",
-      "packagePatterns": [
-        "request",
-        "request-promise-native"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    }
-  ],
+  "major": {
+    "automerge": false
+  },
+  "automerge": true,
+  "automergeType": "branch",
   "pin": {
     "automerge": true
   }
