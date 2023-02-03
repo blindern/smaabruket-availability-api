@@ -21,7 +21,7 @@
   "homepage": "https://github.com/blindern/smaabruket-availability-api#readme",
   "devDependencies": {
     "@types/cors": "2.8.13",
-    "@types/express": "4.17.16",
+    "@types/express": "4.17.17",
     "@types/jest": "29.4.0",
     "@types/node": "16.18.11",
     "@typescript-eslint/eslint-plugin": "5.49.0",
