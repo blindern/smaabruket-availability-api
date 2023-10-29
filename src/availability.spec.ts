@@ -1,3 +1,4 @@
+import { describe, expect, it } from "bun:test"
 import * as fs from "fs"
 import { Availability } from "./availability"
 
@@ -10,7 +11,9 @@ if (!haveCredentials) {
   )
 }
 
-const itIfCredentials = haveCredentials ? it : it.skip
+const itIfCredentials = haveCredentials
+  ? it
+  : (...args: Parameters<typeof it.skip>) => it.skip(...args)
 
 describe("class Availability", () => {
   describe("fetching data", () => {

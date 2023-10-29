@@ -1,14 +1,16 @@
-FROM node:16-alpine
-
-COPY package*.json /app/
-
-RUN set -eux; \
-    cd /app; \
-    npm ci
-
-COPY . /app
-
-EXPOSE 8000
-
+FROM oven/bun:1.0.7 AS base
 WORKDIR /app
-CMD ["npm", "run", "serve"]
+
+FROM base AS install
+
+RUN mkdir -p /temp/prod
+COPY package.json bun.lockb /temp/prod/
+RUN cd /temp/prod && bun install --frozen-lockfile --production
+
+FROM base AS release
+COPY --from=install /temp/prod/node_modules node_modules
+COPY src src
+
+USER bun
+EXPOSE 8000
+ENTRYPOINT ["bun", "run", "src/app.ts"]

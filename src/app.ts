@@ -8,6 +8,11 @@ import {
   isValidIsoDate,
 } from "./availability"
 
+process.on("SIGINT", () => {
+  console.log("Received SIGINT - exiting")
+  process.exit()
+})
+
 const spreadsheetId = process.env.SPREADSHEET_ID
 if (spreadsheetId == null) {
   throw Error("Missing environment variable SPREADSHEET_ID")

@@ -7,9 +7,9 @@ https://foreningenbs.no/smaabruket-availability-api/availability?first=2018-01-0
 ## Development
 
 ```bash
-npm ci
+bun install
 export SPREADSHEET_ID='XXX'
-npm run serve
+bun run serve
 ```
 
 http://localhost:8000/availability
