@@ -1,6 +1,5 @@
-import asyncHandler from "express-async-handler"
-import cors from "cors"
-import express from "express"
+import { cors } from "@elysiajs/cors"
+import { Elysia } from "elysia"
 import {
   Availability,
   dateStartOfWeek,
@@ -23,17 +22,6 @@ const availability = new Availability(spreadsheetId)
 const weeksShowBefore = 0
 const weeksShowAfter = 25
 
-const app = express()
-app.use(cors())
-
-app.get("/health", (req, res) => {
-  res.send("I am alive!")
-})
-
-app.get("/", (req, res) => {
-  res.send("See /availability")
-})
-
 function parseDate(value: string) {
   if (!isValidIsoDate(value)) {
     throw Error("Invalid date!")
@@ -41,39 +29,38 @@ function parseDate(value: string) {
   return value
 }
 
-app.get(
-  "/availability",
-  asyncHandler(async (req, res) => {
+new Elysia()
+  .use(cors())
+  .get("/health", () => "I am alive!")
+  .get("/", () => "See /availability")
+  .get("/availability", async ({ set, query }) => {
     const first =
-      typeof req.query.first === "string"
-        ? parseDate(req.query.first)
+      typeof query.first === "string"
+        ? parseDate(query.first)
         : dateStartOfWeek(-weeksShowBefore)
 
     const until =
-      typeof req.query.until === "string"
-        ? parseDate(req.query.until)
+      typeof query.until === "string"
+        ? parseDate(query.until)
         : dateStartOfWeek(weeksShowAfter)
 
     try {
       const bookings = filterDays(await availability.getData(), first, until)
-      res.json({
+      return {
         bookings,
         first,
         until,
-      })
+      }
     } catch (err) {
       console.log("Failed for some reason", err)
-      res.status(500)
-      res.send("Failed")
+      set.status = 500
+      return "Failed"
     }
-  }),
-)
+  })
+  .post("/availability/invalidate", () => {
+    availability.invalidateCache()
+    return { invalidated: true }
+  })
+  .listen(8000)
 
-app.post("/availability/invalidate", (req, res) => {
-  availability.invalidateCache()
-  res.json({ invalidated: true })
-})
-
-app.listen(8000, () => {
-  console.log("App running")
-})
+console.log("App running")
