@@ -15,7 +15,7 @@ const columnType = columnIndexByChar("E")
 const columnInnbetDato = columnIndexByChar("H")
 const columnInnbetBeloep = columnIndexByChar("I")
 
-enum BookingType {
+export enum BookingType {
   AVLYST = "AVLYST",
   BEBOERHELG = "BEBOERHELG",
   HYTTESTYRET = "HYTTESTYRET",
