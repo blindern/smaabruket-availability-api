@@ -12,7 +12,7 @@ process.on("SIGINT", () => {
   process.exit()
 })
 
-const spreadsheetId = process.env.SPREADSHEET_ID
+const spreadsheetId = process.env["SPREADSHEET_ID"]
 if (spreadsheetId == null) {
   throw Error("Missing environment variable SPREADSHEET_ID")
 }
@@ -35,13 +35,13 @@ new Elysia()
   .get("/", () => "See /availability")
   .get("/availability", async ({ set, query }) => {
     const first =
-      typeof query.first === "string"
-        ? parseDate(query.first)
+      typeof query["first"] === "string"
+        ? parseDate(query["first"])
         : dateStartOfWeek(-weeksShowBefore)
 
     const until =
-      typeof query.until === "string"
-        ? parseDate(query.until)
+      typeof query["until"] === "string"
+        ? parseDate(query["until"])
         : dateStartOfWeek(weeksShowAfter)
 
     try {

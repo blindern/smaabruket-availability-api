@@ -176,7 +176,11 @@ export class Availability {
       "RESERVERT SOM BEBOERHELG": BookingType.BEBOERHELG,
       "RESERVERT AV HYTTESTYRET": BookingType["RESERVERT-HS"],
     }
-    if (type in fixedTypes) return fixedTypes[type]
+
+    const found = fixedTypes[type]
+    if (found != null) {
+      return found
+    }
 
     return innbetBeloep == null ||
       innbetBeloep === "" ||
