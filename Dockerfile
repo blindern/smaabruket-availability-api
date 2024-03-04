@@ -1,4 +1,4 @@
-FROM oven/bun:1.0.29 AS base
+FROM oven/bun:1.0.30 AS base
 WORKDIR /app
 
 FROM base AS install
