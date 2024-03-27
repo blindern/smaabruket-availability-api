@@ -21,7 +21,7 @@
   "homepage": "https://github.com/blindern/smaabruket-availability-api#readme",
   "devDependencies": {
     "@tsconfig/bun": "1.0.5",
-    "@tsconfig/strictest": "2.0.4",
+    "@tsconfig/strictest": "2.0.5",
     "@typescript-eslint/eslint-plugin": "7.4.0",
     "@typescript-eslint/parser": "7.4.0",
     "eslint": "8.57.0",
