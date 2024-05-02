@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@elysiajs/cors": "1.0.2",
-    "@googleapis/sheets": "5.0.5",
+    "@googleapis/sheets": "6.1.0",
     "bun-types": "^1.0.7",
     "elysia": "1.0.16"
   }
