@@ -35,6 +35,6 @@
     "@elysiajs/cors": "1.0.2",
     "@googleapis/sheets": "9.0.0",
     "bun-types": "^1.0.7",
-    "elysia": "1.0.25"
+    "elysia": "1.0.26"
   }
 }
