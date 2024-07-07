@@ -47,6 +47,7 @@ function parseDate(value: string) {
   const match = /^(\d\d).(\d\d).(\d\d\d\d)$/.exec(value)
   if (!match) return null
 
+  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
   return new Date(`${match[3]}-${match[2]}-${match[1]}`)
 }
 
@@ -168,7 +169,7 @@ export class Availability {
   public getType(type?: string, innbetDato?: string, innbetBeloep?: string) {
     if (type == null || type === "") return BookingType.HYTTESTYRET
 
-    const fixedTypes: { [key: string]: BookingType } = {
+    const fixedTypes: Record<string, BookingType> = {
       AVLYST: BookingType.AVLYST,
       BEBOERHELG: BookingType.BEBOERHELG,
       HYTTESTYRET: BookingType.HYTTESTYRET,

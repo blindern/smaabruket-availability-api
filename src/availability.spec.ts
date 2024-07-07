@@ -13,7 +13,9 @@ if (!haveCredentials) {
 
 const itIfCredentials = haveCredentials
   ? it
-  : (...args: Parameters<typeof it.skip>) => it.skip(...args)
+  : (...args: Parameters<typeof it.skip>) => {
+      it.skip(...args)
+    }
 
 describe("class Availability", () => {
   describe("fetching data", () => {
