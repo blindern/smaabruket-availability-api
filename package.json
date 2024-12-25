@@ -35,8 +35,8 @@
     "typescript-eslint": "^8.18.2"
   },
   "dependencies": {
-    "@elysiajs/cors": "1.0.5",
+    "@elysiajs/cors": "1.2.0",
     "@googleapis/sheets": "9.3.1",
-    "elysia": "1.0.27"
+    "elysia": "1.2.6"
   }
 }
