@@ -1,5 +1,3 @@
-import { fixupPluginRules } from "@eslint/compat"
-import deprecationPlugin from "eslint-plugin-deprecation"
 import js from "@eslint/js"
 import prettier from "eslint-plugin-prettier/recommended"
 import globals from "globals"
@@ -14,10 +12,6 @@ export default tseslint.config(
     ignores: [],
   },
   {
-    plugins: {
-      // @ts-expect-error: Improper v9 support workaround. See https://github.com/gund/eslint-plugin-deprecation/issues/78
-      deprecation: fixupPluginRules(deprecationPlugin),
-    },
     languageOptions: {
       globals: {
         ...globals.node,
@@ -31,6 +25,7 @@ export default tseslint.config(
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-unsafe-member-access": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-deprecated": "error",
     },
   },
 )
