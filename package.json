@@ -37,6 +37,6 @@
   "dependencies": {
     "@elysiajs/cors": "1.2.0",
     "@googleapis/sheets": "9.3.1",
-    "elysia": "1.2.7"
+    "elysia": "1.2.8"
   }
 }
