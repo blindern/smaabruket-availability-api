@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@elysiajs/cors": "1.4.0",
-    "@googleapis/sheets": "9.8.0",
+    "@googleapis/sheets": "11.1.0",
     "elysia": "1.4.5"
   }
 }
