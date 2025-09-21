@@ -1,9 +1,9 @@
 import js from "@eslint/js"
 import prettier from "eslint-plugin-prettier/recommended"
-import globals from "globals"
 import tseslint from "typescript-eslint"
+import { defineConfig } from "eslint/config"
 
-export default tseslint.config(
+export default defineConfig(
   prettier,
   js.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
@@ -13,12 +13,8 @@ export default tseslint.config(
   },
   {
     languageOptions: {
-      globals: {
-        ...globals.node,
-      },
       parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
+        projectService: true,
       },
     },
     rules: {

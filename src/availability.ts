@@ -15,14 +15,16 @@ const columnType = columnIndexByChar("E")
 const columnInnbetDato = columnIndexByChar("H")
 const columnInnbetBeloep = columnIndexByChar("I")
 
-export enum BookingType {
-  AVLYST = "AVLYST",
-  BEBOERHELG = "BEBOERHELG",
-  HYTTESTYRET = "HYTTESTYRET",
-  RESERVERT = "RESERVERT",
-  "RESERVERT-HS" = "RESERVERT-HS",
-  UTLEID = "UTLEID",
-}
+export const BookingType = {
+  AVLYST: "AVLYST",
+  BEBOERHELG: "BEBOERHELG",
+  HYTTESTYRET: "HYTTESTYRET",
+  RESERVERT: "RESERVERT",
+  "RESERVERT-HS": "RESERVERT-HS",
+  UTLEID: "UTLEID",
+} as const
+
+export type BookingType = (typeof BookingType)[keyof typeof BookingType]
 
 interface IBooking {
   /** yyyy-mm-dd */

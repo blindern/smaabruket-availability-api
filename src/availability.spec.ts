@@ -1,6 +1,6 @@
-import { describe, expect, it } from "bun:test"
+import { describe, expect, it } from "vitest"
 import * as fs from "fs"
-import { Availability, BookingType } from "./availability"
+import { Availability, BookingType } from "./availability.ts"
 
 const testSpreadsheetId = "1RDCajU73u3TRhUv1M5DQchO_V7YgwTqdf5MZsMuIRfs"
 

@@ -5,7 +5,8 @@ import {
   dateStartOfWeek,
   filterDays,
   isValidIsoDate,
-} from "./availability"
+} from "./availability.ts"
+import { node } from "@elysiajs/node"
 
 process.on("SIGINT", () => {
   console.log("Received SIGINT - exiting")
@@ -29,7 +30,7 @@ function parseDate(value: string) {
   return value
 }
 
-new Elysia()
+new Elysia({ adapter: node() })
   .use(cors())
   .get("/health", () => "I am alive!")
   .get("/", () => "See /availability")
