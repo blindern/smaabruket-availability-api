@@ -38,6 +38,12 @@ jobs:
 
       - run: scripts/docker-test-image.sh ghcr.io/blindern/smaabruket-availability-api
 
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Push container
         if: github.ref == 'refs/heads/main'
         id: docker_build
