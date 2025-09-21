@@ -7,9 +7,11 @@ https://foreningenbs.no/smaabruket-availability-api/availability?first=2018-01-0
 ## Development
 
 ```bash
-bun install
-export SPREADSHEET_ID='XXX'
-bun run serve
+corepacke enable
+pnpm install
+# Using the test spreadsheet here.
+export SPREADSHEET_ID='1RDCajU73u3TRhUv1M5DQchO_V7YgwTqdf5MZsMuIRfs'
+pnpm serve
 ```
 
 http://localhost:8000/availability
