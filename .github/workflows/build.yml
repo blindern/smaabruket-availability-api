@@ -54,6 +54,7 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/blindern/smaabruket-availability-api:latest
+          cache-from: type=gha
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
