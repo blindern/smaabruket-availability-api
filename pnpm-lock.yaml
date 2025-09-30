@@ -10,16 +10,16 @@ importers:
     dependencies:
       '@elysiajs/cors':
         specifier: 1.4.0
-        version: 1.4.0(elysia@1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2))
+        version: 1.4.0(elysia@1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2))
       '@elysiajs/node':
         specifier: 1.4.0
-        version: 1.4.0(elysia@1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2))(hono@4.9.9)
+        version: 1.4.0(elysia@1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2))(hono@4.9.9)
       '@googleapis/sheets':
         specifier: 12.0.0
         version: 12.0.0
       elysia:
-        specifier: 1.4.7
-        version: 1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2)
+        specifier: 1.4.8
+        version: 1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2)
       google-auth-library:
         specifier: 10.3.0
         version: 10.3.0
@@ -678,12 +678,19 @@ packages:
   ecdsa-sig-formatter@1.0.11:
     resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
 
-  elysia@1.4.7:
-    resolution: {integrity: sha512-6dZjPO5wBBilZPzqZpuMq/bMiHn7jQ94sweiPTTR9MsofliZJcwcRB0XHAr7AvKblOlU72P+Cu8z6JNhZK8u/A==}
+  elysia@1.4.8:
+    resolution: {integrity: sha512-ys3OSLZok9eRlOPOJBOAJy+5YVxRCLaq2FMMs2naCg6klW3kNu5NOUwKMAJJ9lzUgOfCe42e3d3lrlbVSdRlaA==}
     peerDependencies:
+      '@sinclair/typebox': '>= 0.34.0 < 1'
       exact-mirror: '>= 0.0.9'
       file-type: '>= 20.0.0'
+      openapi-types: '>= 12.0.0'
       typescript: '>= 5.0.0'
+    peerDependenciesMeta:
+      file-type:
+        optional: true
+      typescript:
+        optional: true
 
   es-define-property@1.0.1:
     resolution: {integrity: sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g==}
@@ -1374,16 +1381,17 @@ packages:
 
 snapshots:
 
-  '@borewit/text-codec@0.1.1': {}
+  '@borewit/text-codec@0.1.1':
+    optional: true
 
-  '@elysiajs/cors@1.4.0(elysia@1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2))':
+  '@elysiajs/cors@1.4.0(elysia@1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2))':
     dependencies:
-      elysia: 1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2)
+      elysia: 1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2)
 
-  '@elysiajs/node@1.4.0(elysia@1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2))(hono@4.9.9)':
+  '@elysiajs/node@1.4.0(elysia@1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2))(hono@4.9.9)':
     dependencies:
       '@hono/node-server': 1.19.4(hono@4.9.9)
-      elysia: 1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2)
+      elysia: 1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2)
     transitivePeerDependencies:
       - hono
 
@@ -1612,8 +1620,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.2':
     optional: true
 
-  '@sinclair/typebox@0.34.41':
-    optional: true
+  '@sinclair/typebox@0.34.41': {}
 
   '@tokenizer/inflate@0.2.7':
     dependencies:
@@ -1622,8 +1629,10 @@ snapshots:
       token-types: 6.1.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
-  '@tokenizer/token@0.3.0': {}
+  '@tokenizer/token@0.3.0':
+    optional: true
 
   '@tsconfig/node24@24.0.1': {}
 
@@ -1887,16 +1896,16 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  elysia@1.4.7(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(typescript@5.9.2):
+  elysia@1.4.8(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(file-type@21.0.0)(openapi-types@12.1.3)(typescript@5.9.2):
     dependencies:
+      '@sinclair/typebox': 0.34.41
       cookie: 1.0.2
       exact-mirror: 0.2.2(@sinclair/typebox@0.34.41)
       fast-decode-uri-component: 1.0.1
+      openapi-types: 12.1.3
+    optionalDependencies:
       file-type: 21.0.0
       typescript: 5.9.2
-    optionalDependencies:
-      '@sinclair/typebox': 0.34.41
-      openapi-types: 12.1.3
 
   es-define-property@1.0.1: {}
 
@@ -2064,7 +2073,8 @@ snapshots:
       node-domexception: 1.0.0
       web-streams-polyfill: 3.3.3
 
-  fflate@0.8.2: {}
+  fflate@0.8.2:
+    optional: true
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -2078,6 +2088,7 @@ snapshots:
       uint8array-extras: 1.5.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   fill-range@7.1.1:
     dependencies:
@@ -2200,7 +2211,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ieee754@1.2.1: {}
+  ieee754@1.2.1:
+    optional: true
 
   ignore@5.3.2: {}
 
@@ -2306,8 +2318,7 @@ snapshots:
 
   object-inspect@1.13.4: {}
 
-  openapi-types@12.1.3:
-    optional: true
+  openapi-types@12.1.3: {}
 
   optionator@0.9.4:
     dependencies:
@@ -2457,6 +2468,7 @@ snapshots:
   strtok3@10.3.4:
     dependencies:
       '@tokenizer/token': 0.3.0
+    optional: true
 
   supports-color@7.2.0:
     dependencies:
@@ -2490,6 +2502,7 @@ snapshots:
       '@borewit/text-codec': 0.1.1
       '@tokenizer/token': 0.3.0
       ieee754: 1.2.1
+    optional: true
 
   ts-api-utils@2.1.0(typescript@5.9.2):
     dependencies:
@@ -2512,7 +2525,8 @@ snapshots:
 
   typescript@5.9.2: {}
 
-  uint8array-extras@1.5.0: {}
+  uint8array-extras@1.5.0:
+    optional: true
 
   undici-types@7.12.0: {}
 
