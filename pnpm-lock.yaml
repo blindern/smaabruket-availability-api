@@ -1175,8 +1175,8 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
-  srvx@0.8.9:
-    resolution: {integrity: sha512-wYc3VLZHRzwYrWJhkEqkhLb31TI0SOkfYZDkUhXdp3NoCnNS0FqajiQszZZjfow/VYEuc6Q5sZh9nM6kPy2NBQ==}
+  srvx@0.8.15:
+    resolution: {integrity: sha512-poPs1GuctQLpiJ/1Pb8e+5b5lju9hQU7wxJ6NkYVUw7ZZExeRoYwyiaOekal+rDZc99MO/J2y9+SGFpHBKRSpQ==}
     engines: {node: '>=20.16.0'}
     hasBin: true
 
@@ -1361,9 +1361,9 @@ snapshots:
 
   '@elysiajs/node@1.4.1(elysia@1.4.10(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(openapi-types@12.1.3)(typescript@5.9.3))':
     dependencies:
-      crossws: 0.4.1(srvx@0.8.9)
+      crossws: 0.4.1(srvx@0.8.15)
       elysia: 1.4.10(@sinclair/typebox@0.34.41)(exact-mirror@0.2.2(@sinclair/typebox@0.34.41))(openapi-types@12.1.3)(typescript@5.9.3)
-      srvx: 0.8.9
+      srvx: 0.8.15
 
   '@esbuild/aix-ppc64@0.25.10':
     optional: true
@@ -1834,9 +1834,9 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  crossws@0.4.1(srvx@0.8.9):
+  crossws@0.4.1(srvx@0.8.15):
     optionalDependencies:
-      srvx: 0.8.9
+      srvx: 0.8.15
 
   data-uri-to-buffer@4.0.1: {}
 
@@ -2398,7 +2398,7 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  srvx@0.8.9:
+  srvx@0.8.15:
     dependencies:
       cookie-es: 2.0.0
 
