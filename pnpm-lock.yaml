@@ -15,8 +15,8 @@ importers:
         specifier: 1.4.2
         version: 1.4.2(elysia@1.4.19(@sinclair/typebox@0.34.41)(exact-mirror@0.2.3(@sinclair/typebox@0.34.41))(file-type@21.1.0)(openapi-types@12.1.3)(typescript@5.9.3))
       '@googleapis/sheets':
-        specifier: 12.0.0
-        version: 12.0.0
+        specifier: 13.0.1
+        version: 13.0.1
       elysia:
         specifier: 1.4.19
         version: 1.4.19(@sinclair/typebox@0.34.41)(exact-mirror@0.2.3(@sinclair/typebox@0.34.41))(file-type@21.1.0)(openapi-types@12.1.3)(typescript@5.9.3)
@@ -270,8 +270,8 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@googleapis/sheets@12.0.0':
-    resolution: {integrity: sha512-VCJAm3Vzz1nzuUrPP9ETOujlC7kuwdeWiWLdgXAeg+NWu7tKUzu+pe5l55GDqYAEEpCXrxkAlw4gSx+A44zgLg==}
+  '@googleapis/sheets@13.0.1':
+    resolution: {integrity: sha512-XTYObncN5Rqexc0uITZIN9OWTEyE/ZR2S6c7wAniqHe2oGXW9gcHR9f9hQwPMHFUTHjH7Jkj8SLdt0O0u37y2A==}
     engines: {node: '>=12.0.0'}
 
   '@humanfs/core@0.19.1':
@@ -1550,7 +1550,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@googleapis/sheets@12.0.0':
+  '@googleapis/sheets@13.0.1':
     dependencies:
       googleapis-common: 8.0.1
     transitivePeerDependencies:
