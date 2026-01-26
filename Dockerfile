@@ -12,6 +12,9 @@ FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
 COPY src src
 
+ENV OTEL_EXPORTER_OTLP_ENDPOINT=""
+ENV OTEL_SERVICE_NAME="smaabruket-availability-api"
+
 USER node
 EXPOSE 8000
 ENTRYPOINT ["node", "src/app.ts"]

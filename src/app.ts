@@ -1,4 +1,5 @@
 import { cors } from "@elysiajs/cors"
+import { node } from "@elysiajs/node"
 import { Elysia } from "elysia"
 import {
   Availability,
@@ -6,12 +7,14 @@ import {
   filterDays,
   isValidIsoDate,
 } from "./availability.ts"
-import { node } from "@elysiajs/node"
+import { createTelemetryPlugin } from "./telemetry.ts"
 
 process.on("SIGINT", () => {
   console.log("Received SIGINT - exiting")
   process.exit()
 })
+
+const telemetryPlugin = createTelemetryPlugin()
 
 const spreadsheetId = process.env["SPREADSHEET_ID"]
 if (spreadsheetId == null) {
@@ -30,7 +33,13 @@ function parseDate(value: string) {
   return value
 }
 
-new Elysia({ adapter: node() })
+const app = new Elysia({ adapter: node() })
+
+if (telemetryPlugin) {
+  app.use(telemetryPlugin)
+}
+
+app
   .use(cors())
   .get("/health", () => "I am alive!")
   .get("/", () => "See /availability")
