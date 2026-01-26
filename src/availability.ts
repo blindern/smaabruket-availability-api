@@ -1,4 +1,5 @@
 import { sheets_v4 } from "@googleapis/sheets"
+import { record, setAttributes } from "@elysiajs/opentelemetry"
 import { GoogleAuth } from "google-auth-library"
 
 const cacheExpireSeconds = 900
@@ -114,25 +115,35 @@ export class Availability {
 
   public async getData() {
     if (this.cache != null && !this.isExpired()) {
+      setAttributes({ "cache.hit": true })
       return this.cache.data
     }
+    setAttributes({ "cache.hit": false })
 
-    const auth = new GoogleAuth({
-      keyFilename: "credentials.json",
-      scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+    const res = await record("google.sheets.get", async () => {
+      const auth = new GoogleAuth({
+        keyFilename: "credentials.json",
+        scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+      })
+
+      const client = new sheets_v4.Sheets({
+        auth,
+      })
+
+      setAttributes({ "sheets.spreadsheetId": this.spreadsheetId })
+
+      return client.spreadsheets.values.get({
+        // Named range in the spreadsheet.
+        range: "Bookinger",
+        spreadsheetId: this.spreadsheetId,
+      })
     })
 
-    const client = new sheets_v4.Sheets({
-      auth,
+    const parsed = record("availability.parse", () => {
+      const result = this.parseSpreadsheet(res.data)
+      setAttributes({ "parse.rowCount": result.length })
+      return result
     })
-
-    const res = await client.spreadsheets.values.get({
-      // Named range in the spreadsheet.
-      range: "Bookinger",
-      spreadsheetId: this.spreadsheetId,
-    })
-
-    const parsed = this.parseSpreadsheet(res.data)
 
     this.cache = {
       data: parsed,
