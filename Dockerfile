@@ -12,7 +12,7 @@ FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
 COPY src src
 
-ENV OTEL_EXPORTER_OTLP_ENDPOINT=""
+ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://signoz-otel-collector.zt.foreningenbs.no:4318"
 ENV OTEL_SERVICE_NAME="smaabruket-availability-api"
 
 USER node
