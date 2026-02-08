@@ -43,7 +43,7 @@ importers:
         specifier: 2.0.8
         version: 2.0.8
       '@types/node':
-        specifier: ^24.10.4
+        specifier: ^24.10.9
         version: 24.10.9
       eslint:
         specifier: ^9.17.0
@@ -1217,6 +1217,7 @@ packages:
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   globals@14.0.0:
