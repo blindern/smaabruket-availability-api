@@ -36,7 +36,7 @@
     "vitest": "4.1.5"
   },
   "dependencies": {
-    "@elysiajs/cors": "1.4.1",
+    "@elysiajs/cors": "1.4.2",
     "@elysiajs/node": "1.4.5",
     "@elysiajs/opentelemetry": "^1.4.10",
     "@googleapis/sheets": "13.0.1",
