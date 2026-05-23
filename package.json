@@ -39,7 +39,7 @@
     "@elysiajs/cors": "1.4.2",
     "@elysiajs/node": "1.4.5",
     "@elysiajs/opentelemetry": "^1.4.10",
-    "@googleapis/sheets": "13.0.1",
+    "@googleapis/sheets": "13.0.2",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.218.0",
     "@opentelemetry/sdk-trace-node": "^2.5.0",
     "elysia": "1.4.28",
