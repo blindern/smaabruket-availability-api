@@ -42,7 +42,7 @@
     "@googleapis/sheets": "13.0.2",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.219.0",
     "@opentelemetry/sdk-trace-node": "^2.5.0",
-    "elysia": "1.4.28",
+    "elysia": "1.4.29",
     "google-auth-library": "10.7.0"
   },
   "packageManager": "pnpm@10.34.3+sha512.f2c531b08829d7be7f03c90addc266615f9c5477463e4bf1d275cb263ce9ea57cf0d5599110d94649a9bb3fed9f0b5efcea74a7016b61532a24cb9ad87860c1d"
