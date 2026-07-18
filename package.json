@@ -38,12 +38,12 @@
   "dependencies": {
     "@elysiajs/cors": "1.4.2",
     "@elysiajs/node": "1.4.5",
-    "@elysiajs/opentelemetry": "^1.4.10",
+    "@elysiajs/opentelemetry": "^1.4.11",
     "@googleapis/sheets": "13.0.2",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.220.0",
-    "@opentelemetry/sdk-trace-node": "^2.5.0",
+    "@opentelemetry/sdk-trace-node": "^2.9.0",
     "elysia": "1.4.29",
-    "google-auth-library": "10.9.0"
+    "google-auth-library": "catalog:"
   },
   "packageManager": "pnpm@11.15.0+sha512.266f8957a30d2be6e9468e5e66bcdedd35a794175f71b067ba8504d686cce1d0c0f429b33c323c3c569ad4891e667574a49ff71d1b89a22cc66f13c65818c578"
 }
