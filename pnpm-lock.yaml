@@ -13,13 +13,13 @@ importers:
     dependencies:
       '@elysiajs/cors':
         specifier: 1.4.2
-        version: 1.4.2(elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))
+        version: 1.4.2(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))
       '@elysiajs/node':
         specifier: 1.4.5
-        version: 1.4.5(elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))
+        version: 1.4.5(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))
       '@elysiajs/opentelemetry':
         specifier: ^1.4.11
-        version: 1.4.11(elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))
+        version: 1.4.11(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))
       '@googleapis/sheets':
         specifier: 13.0.2
         version: 13.0.2
@@ -30,8 +30,8 @@ importers:
         specifier: ^2.9.0
         version: 2.10.0(@opentelemetry/api@1.9.1)
       elysia:
-        specifier: 1.4.29
-        version: 1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
+        specifier: 1.4.30
+        version: 1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
       google-auth-library:
         specifier: 10.9.1
         version: 10.9.1
@@ -819,8 +819,8 @@ packages:
   ecdsa-sig-formatter@1.0.11:
     resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
 
-  elysia@1.4.29:
-    resolution: {integrity: sha512-GwMRGGwSdjfPt+w3LA0fqTuYJtS8uVRJicvoar98/HrO5qdFKDc9CwjIb6Kja+v39lkY+58hr2JvdR9jQzlUuA==}
+  elysia@1.4.30:
+    resolution: {integrity: sha512-S2qqV0CbM4faB1hQQ5IYoeYnAUinjHlzRduxaBc4OoNqh0GjOc8k6tt3hv5ozWcG6Svr6hugw6JL4zNke4jwfA==}
     peerDependencies:
       '@sinclair/typebox': '>= 0.34.0 < 1'
       '@types/bun': '>= 1.2.0'
@@ -1639,22 +1639,22 @@ snapshots:
 
   '@borewit/text-codec@0.2.2': {}
 
-  '@elysiajs/cors@1.4.2(elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))':
+  '@elysiajs/cors@1.4.2(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))':
     dependencies:
-      elysia: 1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
+      elysia: 1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
 
-  '@elysiajs/node@1.4.5(elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))':
+  '@elysiajs/node@1.4.5(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))':
     dependencies:
       crossws: 0.4.12(srvx@0.11.22)
-      elysia: 1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
+      elysia: 1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
       srvx: 0.11.22
 
-  '@elysiajs/opentelemetry@1.4.11(elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))':
+  '@elysiajs/opentelemetry@1.4.11(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3))':
     dependencies:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/instrumentation': 0.200.0(@opentelemetry/api@1.9.1)
       '@opentelemetry/sdk-node': 0.200.0(@opentelemetry/api@1.9.1)
-      elysia: 1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
+      elysia: 1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3)
     transitivePeerDependencies:
       - supports-color
 
@@ -2399,7 +2399,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  elysia@1.4.29(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3):
+  elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.4)(file-type@22.0.2)(openapi-types@12.1.3)(typescript@6.0.3):
     dependencies:
       '@sinclair/typebox': 0.34.52
       cookie: 1.1.1
