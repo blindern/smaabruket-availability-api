@@ -1,7 +1,7 @@
 allowBuilds:
   protobufjs: false
 catalog:
-  google-auth-library: 10.9.1
+  google-auth-library: 11.0.2
 minimumReleaseAge: 4320
 overrides:
   google-auth-library: "catalog:"
