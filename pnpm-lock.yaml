@@ -179,8 +179,8 @@ importers:
         specifier: ^1.4.11
         version: 1.4.11(elysia@1.4.30(@sinclair/typebox@0.34.52)(exact-mirror@1.2.6)(file-type@22.3.0)(openapi-types@12.1.3)(typescript@6.0.3))
       '@googleapis/sheets':
-        specifier: 18.1.1
-        version: 18.1.1
+        specifier: 18.1.2
+        version: 18.1.2
       '@opentelemetry/exporter-trace-otlp-proto':
         specifier: ^0.300.0
         version: 0.300.0(@opentelemetry/api@1.10.0)
@@ -306,8 +306,8 @@ packages:
     resolution: {integrity: sha512-IkO+/KEUvwbVpiURZg+P7zF74z5Jxe0UgJxVni+RtoHQ6IZieXaO02kmadomap/q+l6bc/jdPGGqTjhuZnuz1Q==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@googleapis/sheets@18.1.1':
-    resolution: {integrity: sha512-T2AOp0AhDdZ3imQyy3d8AnRMdPFwibKKcmKttWxLBKeiJKmE9p7RFrBpdbswpJ1d3cPdO5kvcYDuKajUFqwraA==}
+  '@googleapis/sheets@18.1.2':
+    resolution: {integrity: sha512-Roabm5YjcNKT8GXfIoIC1ne3bdIwu7vuWQUP3zwno9mkPnKlJ20bhk/Kf0RNYxvbQcNgjW9bnJ7l1uVmcVRk2Q==}
     engines: {node: '>=22.0.0'}
 
   '@grpc/grpc-js@1.14.7':
@@ -1805,7 +1805,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@googleapis/sheets@18.1.1':
+  '@googleapis/sheets@18.1.2':
     dependencies:
       googleapis-common: 9.3.1
     transitivePeerDependencies:
