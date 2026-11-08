@@ -36,13 +36,13 @@
     "vitest": "5.1.0"
   },
   "dependencies": {
-    "@elysiajs/cors": "1.4.2",
+    "@elysiajs/cors": "1.4.3",
     "@elysiajs/node": "1.4.5",
     "@elysiajs/opentelemetry": "^1.4.11",
     "@googleapis/sheets": "18.1.2",
     "@opentelemetry/exporter-trace-otlp-proto": "^0.300.0",
     "@opentelemetry/sdk-trace-node": "^2.9.0",
-    "elysia": "1.4.30",
+    "elysia": "1.4.31",
     "google-auth-library": "catalog:"
   },
   "packageManager": "pnpm@12.18.0+sha512.9d7882d5dc82147ecfc4e062aa34834e0ad0296710a1837a1115ae012127d36b7109e321ac1598a1dd0a65597681b1e99917e12ed0d749eae91187943363beb3"
